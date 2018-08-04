@@ -16,7 +16,7 @@ npm install webpack --save-dev
 
 * 搭建web服务器 webpack-dev-server
 
-webpack-dev-server 为你提供了一个简单的 web 服务器，并且能够实时重新加载(live reloading)。
+webpack-dev-server 为你提供了一个简单的 web 服务器，并且能够实时重新加载(live reloading)。  
 1、基本配置
 安装：
 ```
