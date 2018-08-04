@@ -102,5 +102,16 @@ new webpack.HotModuleReplacementPlugin()
 * 生产环境构建
 
 由于开发环境和生产环境的构建目标差异很大，所以我们需要分开配置：
-1、开发环境：
-1、生产环境：
+1、开发环境：我们需要强大的、具有实时重新加载或模块热替换能力的source map 和localhost server；
+2、生产环境：目标是更小的bundle，更轻量的source map，以及更优化的资源，以改善加载时间。
+
+我们保留一个通用配置，开发环境和生产环境分开配置，使用webpack-merge工具，将这些配置合在一起。
+
+```
+//定义start为开发环境脚本
+"start": "webpack-dev-server --open --host 0.0.0.0 --config webpack.dev.js",
+//定义build为生产环境脚本
+"build": "webpack --config webpack.prod.js"
+```
+
+* 代码分离
