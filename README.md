@@ -70,12 +70,12 @@ Tips:使用了htmlWebpackPlugin后，在入口html文件中不用再手动引入
 
 * source map
 
-当webpack打包源文件时，可能很难追踪到错误和警告在源代码中的位置。比如，如果将多个文件都打包到一个bundle(bundle.js)
-中，而其中一个源文件包含错误，那么堆栈跟踪会简单的指向bundle.js。但是这对我们调试来说并没有太多帮助，因为不知道错误
-来自哪个源文件。
+当webpack打包源文件时，可能很难追踪到错误和警告在源代码中的位置。如果将多个文件都打包到一个bundle(bundle.js)中，
+而其中一个源文件包含错误，那么堆栈跟踪会简单的指向bundle.js。但是这对我们调试来说并没有太多帮助，因为不知道错误来
+自哪个源文件。
 
-为了更容易的追踪错误和警告，Javascript提供了了source map功能，将编译后的代码映射回原始源代码，source map会明确的告
-诉你错误在哪个文件。
+为了更容易的追踪错误和警告，Javascript提供了了source map功能，将编译后的代码映射回原始源代码，source map会明确的
+告诉你错误在哪个文件。
 
 * HMR
 
@@ -94,8 +94,8 @@ new webpack.HotModuleReplacementPlugin()
 
 * tree sharking
 
-在webpack中，tree sharking指的就是按需加载，即没有被引用的模块不会被打包进来，减少包的大小，缩小应用的加载时间，呈现给
-用户更佳的体验。
+在webpack中，tree sharking指的就是按需加载，即没有被引用的模块不会被打包进来，减少包的大小，缩小应用的加载时间，呈现
+给用户更佳的体验。
 
 它依赖于 ES2015 模块系统中的静态结构特性，例如 import 和 export。
 
@@ -115,3 +115,10 @@ new webpack.HotModuleReplacementPlugin()
 ```
 
 * 代码分离
+代码分离能够把代码分离到不同的bundle，然后按需加载或并行加载这些文件。代码分离可以用于获取更小的bundle，以及控制资源优先
+加载，如果使用合理，会极大的影响加载时间。
+
+有三种常用的代码分离方法：
+1、入口起点：使用 entry 配置手动地分离代码。
+2、防止重复：使用 CommonsChunkPlugin 去重和分离 chunk。
+3、动态导入：通过模块的内联函数调用来分离代码。
